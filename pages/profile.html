@@ -23,38 +23,6 @@
       <a href="../index.html"><img class="absolute icon home" src="../images/dark/home_f8f8f8.webp" alt="Home icon"></a>
       <a href="search.html"><img class="absolute icon search" src="../images/dark/search_f8f8f8.webp" alt="Search icon"></a>
 
-      <!-- Modale de connection -->
-      <dialog id="connexion">
-        <form method="dialog">
-          <h1>Connection</h1>
-          <label for="usermail">Adresse e-mail:</label>
-          <input type="email" id="usermail" name="usermail" pattern="/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi" placeholder="exemple@gmail.com" required>
-          <label for="password">Mot de passe:</label>
-          <input type="password" id="password" name="password" minlength="8" maxlength="20" placeholder="8 à 20 caractères" required>
-          <menu>
-            <button id="btn_connexion" class="absolute btn_confirm onclick" value="confirm">Se connecter</button>
-          </menu>
-          <p id="create_account" class="absolute link">Créer un compte</p>
-        </form>
-      </dialog>
-
-      <!-- Modale de création de compte -->
-      <dialog id="account_creation">
-        <form method="dialog">
-          <h1>Créer un compte</h1>
-          <label for="username">Nom d'utilisateur:</label>
-          <input type="text" id="username" name="username"  minlength="3" maxlength="20" placeholder="3 à 20 caractères" required>
-          <label for="usermail">Adresse e-mail:</label>
-          <input type="email" id="usermail" name="usermail" pattern="/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi" placeholder="exemple@gmail.com" required>
-          <label for="password">Mot de passe:</label>
-          <input type="password" id="password" name="password" minlength="8" maxlength="20" placeholder="8 à 20 caractères" required>
-          <menu>
-            <button id="btn_create_account" class="absolute btn_confirm onclick" value="confirm">Valider</button>
-          </menu>
-          <p id="cancel_creation" class="absolute link">Annuler</p>
-        </form>
-      </dialog>
-
     </div>
   </body>
   
