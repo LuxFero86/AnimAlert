@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,14 +9,53 @@
     <script type="module" src="../src/main.js" defer></script>
     <title>Profil</title>
   </head>
+
   <body>
     <div id="container">
-      <img class="animalert_title" src="../images/dark/AnimAlert_300x75_f8f8f8.png" alt="AnimAlert title logo"/>
-      <img class="absolute paw1" src="../images/dark/AnimAlert_paw_200x200_f8f8f8.png" alt="AnimAlert paw Logo"/>
-      <img class="absolute paw2" src="../images/dark/AnimAlert_paw_200x200_f8f8f8.png" alt="AnimAlert paw Logo"/>
-      <img class="absolute profile" src="../images/dark/profile_f8f8f8.png" alt="Profile icon">
-      <a href="../index.html"><img class="absolute home" src="../images/dark/home_f8f8f8.png" alt="Home icon"></a>
-      <a href="search.html"><img class="absolute search" src="../images/dark/search_f8f8f8.png" alt="Search icon"></a>
+
+      <!-- Mise en place du template -->
+      <img class="animalert_title" src="../images/dark/AnimAlert_300x75_f8f8f8.webp" alt="AnimAlert title logo"/>
+      <img class="absolute paw1" src="../images/dark/AnimAlert_paw_200x200_f8f8f8.webp" alt="AnimAlert paw Logo"/>
+      <img class="absolute paw2" src="../images/dark/AnimAlert_paw_200x200_f8f8f8.webp" alt="AnimAlert paw Logo"/>
+
+      <!-- Icônes de navigation -->
+      <a href="profile.html"><img class="absolute icon profile" src="../images/dark/profile_f8f8f8.webp" alt="Profile icon"></a>
+      <a href="../index.html"><img class="absolute icon home" src="../images/dark/home_f8f8f8.webp" alt="Home icon"></a>
+      <a href="search.html"><img class="absolute icon search" src="../images/dark/search_f8f8f8.webp" alt="Search icon"></a>
+
+      <!-- Modale de connection -->
+      <dialog id="connexion">
+        <form method="dialog">
+          <h1>Connection</h1>
+          <label for="usermail">Adresse e-mail:</label>
+          <input type="email" id="usermail" name="usermail" pattern="/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi" placeholder="exemple@gmail.com" required>
+          <label for="password">Mot de passe:</label>
+          <input type="password" id="password" name="password" minlength="8" maxlength="20" placeholder="8 à 20 caractères" required>
+          <menu>
+            <button id="btn_connexion" class="absolute btn_confirm onclick" value="confirm">Se connecter</button>
+          </menu>
+          <p id="create_account" class="absolute link">Créer un compte</p>
+        </form>
+      </dialog>
+
+      <!-- Modale de création de compte -->
+      <dialog id="account_creation">
+        <form method="dialog">
+          <h1>Créer un compte</h1>
+          <label for="username">Nom d'utilisateur:</label>
+          <input type="text" id="username" name="username"  minlength="3" maxlength="20" placeholder="3 à 20 caractères" required>
+          <label for="usermail">Adresse e-mail:</label>
+          <input type="email" id="usermail" name="usermail" pattern="/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi" placeholder="exemple@gmail.com" required>
+          <label for="password">Mot de passe:</label>
+          <input type="password" id="password" name="password" minlength="8" maxlength="20" placeholder="8 à 20 caractères" required>
+          <menu>
+            <button id="btn_create_account" class="absolute btn_confirm onclick" value="confirm">Valider</button>
+          </menu>
+          <p id="cancel_creation" class="absolute link">Annuler</p>
+        </form>
+      </dialog>
+
     </div>
   </body>
+  
 </html>

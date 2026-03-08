@@ -1,75 +1,121 @@
+:root {
+  --dark-mode-primary: #202020;
+  --dark-mode-secondary: rgba(48, 48, 48, 0.97);
+  --dark-mode-text: #f8f8f8;
+}
+
 body {
-  background-color: #202020;
+  background-color: var(--dark-mode-primary);
+  font-family: 'Roboto', sans-serif;
 }
 
+/* Mise en page du template */
 .animalert_title {
-  width: 100%;
+  width: 96%;
+  margin: 0 2% 3% 2%;
 }
-
-.absolute {
-  position: absolute;
-}
-
 .paw1 {
-  /* z-index: -1; */
   top: 20%;
   left: 6%;
 }
-
 .paw2 {
-  /* z-index: -1; */
   top: 50%;
   right: 6%;
 }
-
-.profile {
-  height: 6%;
+.icon {
+  height: 40px;
   width: auto;
   bottom: 5%;
+}
+.profile {
   left: 8%
 }
-
 .home {
-  height: 6%;
-  width: auto;
-  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
 }
-
 .search {
-  height: 6%;
-  width: auto;
-  bottom: 5%;
   right: 8%;
 }
 
-.report {
+/* Mise en page des modales */
+dialog {
+  background-color: var(--dark-mode-secondary);
+  border: none;
+  border-radius: 20px;
+  width: 75%;
+  height: 68%;
+  h1, label, input, p {
+    color: var(--dark-mode-text);
+  }
+}
+h1 {
+  text-align: center;
+  margin: 5px 0px 50px;
+}
+label {
+  font-size: 1.2em;
+  margin-top: 50px;
+}
+input {
+  background-color: var(--dark-mode-primary);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  width: 98%;
+  height: 40px;
+  margin: 15px 0px;
+}
+
+/* Classes génériques */
+.absolute {
+  position: absolute;
+}
+.font_dark {
+  color: var(--dark-mode-text);
+}
+.btn_confirm {
+  background-color: #2870ef;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.8);
+  font-size: 1.3em;
+  color: var(--dark-mode-text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.onclick:active {
+  box-shadow: 0px 0px 0px;
+  transform: translate(calc(-50% + 4px), 4px);
+}
+.link {
+  margin: 0;
+  bottom: 3%;
+  right: 6%;
+  text-decoration: underline;
+}
+
+/* Page d'accueil */
+.btn_report {
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  border: none;
   z-index: 1;
   height: 15%;
   width: 60%;
   font-size: 2.5em;
   font-weight: bold;
-  font-color: #f8f8f8;
-  font-family: 'Roboto', sans-serif;
+  color: var(--dark-mode-text);
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 20px;
-  border: none;
-  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.8);
 }
-
-.report:active {
-  box-shadow: 0px 0px 0px;
-  transform: translate(-49%, 4px);
-}
-
-#lost {
+#btn_lost {
   top: 26%;
   background-color: #fc3b2c;
 }
-
-#found {
+#btn_found {
   top: 56%;
   background-color: #029c30;
 }
