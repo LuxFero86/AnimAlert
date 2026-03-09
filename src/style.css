@@ -1,11 +1,11 @@
 :root {
-  --dark-mode-primary: #202020;
-  --dark-mode-secondary: rgba(48, 48, 48, 0.97);
-  --dark-mode-text: #f8f8f8;
+  --bg-color-primary: #202020;
+  --bg-color-secondary: rgba(48, 48, 48, 0.97);
+  --text-color: #f8f8f8;
 }
 
 body {
-  background-color: var(--dark-mode-primary);
+  background-color: var(--bg-color-primary);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -38,15 +38,42 @@ body {
   right: 8%;
 }
 
+/* Classes génériques */
+.absolute {
+  position: absolute;
+}
+.onclick:active {
+  box-shadow: 0px 0px 0px;
+  transform: translate(calc(-50% + 4px), 4px);
+}
+.btn_confirm {
+  background-color: #2870ef;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.8);
+  font-size: 1.3em;
+  color: var(--text-color);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.link {
+  margin: 0;
+  bottom: 3%;
+  right: 6%;
+  text-decoration: underline;
+}
+
 /* Mise en page des modales */
 dialog {
-  background-color: var(--dark-mode-secondary);
+  background-color: var(--bg-color-secondary);
   border: none;
   border-radius: 20px;
   width: 75%;
   height: 68%;
   h1, label, input, p {
-    color: var(--dark-mode-text);
+    color: var(--text-color);
   }
 }
 h1 {
@@ -58,43 +85,13 @@ label {
   margin-top: 50px;
 }
 input {
-  background-color: var(--dark-mode-primary);
+  background-color: var(--bg-color-primary);
   border: none;
   border-radius: 5px;
   font-size: 1.2em;
   width: 98%;
   height: 40px;
   margin: 15px 0px;
-}
-
-/* Classes génériques */
-.absolute {
-  position: absolute;
-}
-.font_dark {
-  color: var(--dark-mode-text);
-}
-.btn_confirm {
-  background-color: #2870ef;
-  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.8);
-  font-size: 1.3em;
-  color: var(--dark-mode-text);
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: none;
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.onclick:active {
-  box-shadow: 0px 0px 0px;
-  transform: translate(calc(-50% + 4px), 4px);
-}
-.link {
-  margin: 0;
-  bottom: 3%;
-  right: 6%;
-  text-decoration: underline;
 }
 
 /* Page d'accueil */
@@ -107,7 +104,7 @@ input {
   width: 60%;
   font-size: 2.5em;
   font-weight: bold;
-  color: var(--dark-mode-text);
+  color: var(--text-color);
   left: 50%;
   transform: translateX(-50%);
 }
