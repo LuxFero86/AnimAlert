@@ -1,0 +1,245 @@
+:root {
+  --bg-color-primary: #202020;
+  --bg-color-secondary: rgba(48, 48, 48, 0.95);
+  --box-shadow-color: rgba(0, 0, 0, 0.8);
+  --red-color: #fc3b2c;
+  --green-color: #029c30;
+  --text-color: #f8f8f8;
+  --font: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color-primary);
+  font-family: var(--font);
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  padding: 3% 5%;
+  flex-shrink: 0;
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Mise en page du template */
+.animalert_title {
+  /* width: 96%; */
+  margin: 2% 2% 0 2%;
+}
+.paw1 {
+  top: 22%;
+  left: 8%;
+}
+.paw2 {
+  top: 53%;
+  right: 8%;
+}
+.icon {
+  height: 40px;
+  width: auto;
+  /* bottom: 5%; */
+}
+/* .profile {
+  left: 8%
+}
+.home {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.search {
+  right: 8%;
+} */
+
+/* Classes génériques */
+.absolute {
+  position: absolute;
+}
+.report_btn_flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* gap: 2em; */
+}
+.onclick:active {
+  box-shadow: 0px 0px 0px;
+  /* transform: translate(calc(-50% + 4px), 4px); */
+  transform: translate(4px, 4px);
+}
+.btn_confirm {
+  background-color: #2870ef;
+  box-shadow: 6px 6px 8px var(--box-shadow-color);
+  text-wrap: nowrap;
+  font-size: 1.3em;
+  color: var(--text-color);
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 8px;
+  margin: 8px 27.5%;
+  /* left: 50%;
+  transform: translateX(-50%);
+  bottom: 10%; */
+}
+.link {
+  margin: 0;
+  bottom: 0;
+  right: 0;
+  text-decoration: underline;
+  
+}
+
+/* Mise en page des modales */
+dialog {
+  overflow-y: auto;
+  scrollbar-width: none;
+  background-color: var(--bg-color-secondary);
+  margin: 5% 6%;
+  padding: 0;
+  max-height: 71dvh;
+  width: 88%;
+  box-sizing: border-box;
+  border: solid 16px var(--bg-color-secondary);
+  border-radius: 20px;
+  h1, label, input, select, p {
+    color: var(--text-color);
+  }
+  input, select, textarea {
+    background-color: var(--bg-color-primary);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    height: 40px;
+    margin: 8px 0;
+  }
+  input, textarea {
+    padding-left: 4%;
+    width: 95%;
+  }
+  select {
+    padding-left: 2%;
+  }
+  textarea {
+    font-family: var(--font);
+    height: 26vh;
+    margin-bottom: 16px;
+    padding-top: 4%;
+  }
+  button {
+    color: var(--text-color);
+  }
+  ::placeholder {
+    color: var(--text-color);
+    opacity: 1;
+  }
+  input[type='date'], input[type='time'] {
+    &::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    }
+  }
+}
+/* dialog {
+  overflow-y: auto;
+  scrollbar-width: none;
+  background-color: var(--bg-color-secondary);
+  box-sizing: border-box;
+  border: solid 16px var(--bg-color-secondary);
+  border-radius: 20px;
+  margin: 5% 3%;
+  padding: 0;
+  width: 80%;
+  height: 72%;
+  h1, label, input, select, p {
+    color: var(--text-color);
+  }
+  form {
+    height: 99%;
+  }
+  h1 {
+    text-align: center;
+    margin: 5px 0px 50px;
+  }
+  label {
+    font-size: 1.2em;
+    margin-top: 50px;
+  }
+  input, select, textarea {
+    background-color: var(--bg-color-primary);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    height: 40px;
+    margin: 8px 0;
+  }
+  input, textarea {
+    width: 98%;
+  }
+  textarea {
+    font-family: var(--font);
+    color: var(--text-color);
+    height: 200px;
+    margin-bottom: 16px;
+  }
+} */
+option {
+  font-size: 0.8rem;
+}
+.at_top {
+  margin-top: 0px;
+}
+.flex_fields{
+  display: flex;
+  gap: 16px;
+  input, select {
+    width: calc(50% - 8px);
+  }
+}
+
+/* Page d'accueil */
+.btn_report {
+  position: relative;
+  box-shadow: 10px 10px 8px var(--box-shadow-color);
+  border-radius: 20px;
+  border: none;
+  height: 2.5em;
+  width: 5.5em;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--text-color);
+  /* left: 50%;
+  transform: translateX(-50%); */
+}
+#btn_lost {
+  /* top: 26%; */
+  background-color: var(--red-color);
+}
+#btn_found {
+  /* top: 56%; */
+  background-color: var(--green-color);
+}
+#geolocation {
+  background-color: var(--red-color);
+  border-radius: 6px;
+  right: 0;
+  width: 40%;
+  height: 40px;
+  font-size: 1.2em;
+}
+#report_submit {
+  bottom: 24px;
+}
+
+/* Tablette */
+@media (min-width: 768px) and (max-width: 1023px) {}
+
+/* Desktop */
+@media (min-width: 1024px) {}
