@@ -1,3 +1,4 @@
+/* Déclaration des variables de base */
 :root {
   --bg-color-primary: #202020;
   --bg-color-secondary: rgba(48, 48, 48, 0.95);
@@ -8,6 +9,7 @@
   --font: 'Roboto', sans-serif;
 }
 
+/* Mise en page du template commun */
 body {
   background-color: var(--bg-color-primary);
   font-family: var(--font);
@@ -16,24 +18,8 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-main {
-  flex: 1 0 auto;
-}
-
-footer {
-  padding: 3% 5%;
-  flex-shrink: 0;
-  nav {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-/* Mise en page du template */
-.animalert_title {
-  /* width: 96%; */
-  margin: 2% 2% 0 2%;
+.intermediate, .tablet {
+  display: none;
 }
 .paw1 {
   top: 22%;
@@ -43,37 +29,28 @@ footer {
   top: 53%;
   right: 8%;
 }
+main {
+  flex: 1 0 auto;
+}
+footer {
+  padding: 3% 5%;
+  flex-shrink: 0;
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 .icon {
   height: 40px;
   width: auto;
-  /* bottom: 5%; */
 }
-/* .profile {
-  left: 8%
-}
-.home {
-  left: 50%;
-  transform: translateX(-50%);
-}
-.search {
-  right: 8%;
-} */
 
 /* Classes génériques */
 .absolute {
   position: absolute;
 }
-.report_btn_flex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  /* gap: 2em; */
-}
-.onclick:active {
-  box-shadow: 0px 0px 0px;
-  /* transform: translate(calc(-50% + 4px), 4px); */
-  transform: translate(4px, 4px);
+.at_top {
+  margin-top: 0px;
 }
 .btn_confirm {
   background-color: #2870ef;
@@ -90,12 +67,28 @@ footer {
   transform: translateX(-50%);
   bottom: 10%; */
 }
+.flex_fields{
+  display: flex;
+  gap: 16px;
+  input, select {
+    width: calc(50% - 8px);
+  }
+}
 .link {
   margin: 0;
   bottom: 0;
   right: 0;
   text-decoration: underline;
-  
+}
+.onclick:active {
+  box-shadow: 0px 0px 0px;
+  transform: translate(4px, 4px);
+}
+.report_btn_flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 /* Mise en page des modales */
@@ -147,6 +140,10 @@ dialog {
     }
   }
 }
+option {
+  font-size: 0.8rem;
+}
+
 /* dialog {
   overflow-y: auto;
   scrollbar-width: none;
@@ -190,19 +187,6 @@ dialog {
     margin-bottom: 16px;
   }
 } */
-option {
-  font-size: 0.8rem;
-}
-.at_top {
-  margin-top: 0px;
-}
-.flex_fields{
-  display: flex;
-  gap: 16px;
-  input, select {
-    width: calc(50% - 8px);
-  }
-}
 
 /* Page d'accueil */
 .btn_report {
@@ -215,15 +199,11 @@ option {
   font-size: 2.5em;
   font-weight: bold;
   color: var(--text-color);
-  /* left: 50%;
-  transform: translateX(-50%); */
 }
 #btn_lost {
-  /* top: 26%; */
   background-color: var(--red-color);
 }
 #btn_found {
-  /* top: 56%; */
   background-color: var(--green-color);
 }
 #geolocation {
@@ -238,8 +218,37 @@ option {
   bottom: 24px;
 }
 
-/* Tablette */
-@media (min-width: 768px) and (max-width: 1023px) {}
+/* Intermediate */
+@media (min-width: 501px) and (max-width: 767.98px) {
+  .mobile {display: none;}
+  .intermediate {display: block;}
+  .paw1 {top: 28vw;}
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .mobile {display: none;}
+  .tablet {
+    display: block;
+    max-width: 768px;
+    align-self: center;
+  }
+  .paw1 {top: 34%;}
+  .report_btn_flex {
+    flex-direction: row;
+  }
+}
 
 /* Desktop */
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+  .mobile {display: none;}
+  .tablet {
+    display: block;
+    max-width: 768px;
+    align-self: center;
+  }
+  .paw1 {top: 34%;}
+  .report_btn_flex {
+    flex-direction: row;
+  }
+}

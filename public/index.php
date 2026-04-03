@@ -51,7 +51,7 @@ $securityController = new SecurityController();
                 break;
         }
 
-    include '../template/component/navbar.php'; ?>
+    include '../template/component/footer.php'; ?>
 
 </body>
 </html>
