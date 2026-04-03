@@ -1,0 +1,9 @@
+# Activation du rewrite des URL
+RewriteEngine On
+# Base du projet (emplacement à partir de la racine du serveur)
+RewriteBase /
+# Si ce n'est pas un répertoire
+RewriteCond %{REQUEST_FILENAME} !-d
+# Si ce n'est pas un fichier
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ public/index.php [QSA,L]
