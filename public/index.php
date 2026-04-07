@@ -1,6 +1,7 @@
 <?php
 
 include '../vendor/autoload.php';
+
 //démarrage de la session
 session_start();
 
@@ -30,18 +31,20 @@ $securityController = new SecurityController();
 
 <body>
 
-    <?php include '../template/component/animalert.php';
+    <?php
+
+    include '../template/component/header.php';
 
         //Routeur (test)
         switch ($path) {
             case '/':
                 $homeController->index();
                 break;
-            case '/register':
-                $securityController->createAccount();
-                break;
             case '/login':
                 $securityController->connexion();
+                break;
+            case '/register':
+                $securityController->createAccount();
                 break;
             case '/logout':
                 $securityController->deconnexion();
@@ -50,6 +53,9 @@ $securityController = new SecurityController();
                 echo "404 la page n'existe pas";
                 break;
         }
+
+    echo $_SESSION['connected'];
+    echo $_SESSION['username'];
 
     include '../template/component/footer.php'; ?>
 

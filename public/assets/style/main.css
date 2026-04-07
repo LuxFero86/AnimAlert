@@ -18,22 +18,21 @@ body {
   display: flex;
   flex-direction: column;
 }
-.intermediate, .tablet {
-  display: none;
-}
 .paw1 {
   top: 22%;
   left: 8%;
+  display: none;
 }
 .paw2 {
   top: 53%;
   right: 8%;
+  display: none;
 }
 main {
   flex: 1 0 auto;
 }
 footer {
-  padding: 3% 5%;
+  padding: 5%;
   flex-shrink: 0;
   nav {
     display: flex;
@@ -49,6 +48,22 @@ footer {
 .absolute {
   position: absolute;
 }
+.relative {
+  position: relative;
+}
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.row {
+  flex-direction: row;
+}
+.center {
+  align-self: center;
+  justify-self: center;
+}
 .at_top {
   margin-top: 0px;
 }
@@ -61,11 +76,7 @@ footer {
   padding: 10px 16px;
   border-radius: 8px;
   border: none;
-  margin-bottom: 8px;
-  margin: 8px 27.5%;
-  /* left: 50%;
-  transform: translateX(-50%);
-  bottom: 10%; */
+  margin: 5vh;
 }
 .flex_fields{
   display: flex;
@@ -79,6 +90,8 @@ footer {
   bottom: 0;
   right: 0;
   text-decoration: underline;
+  color: var(--text-color);
+  align-self: end;
 }
 .onclick:active {
   box-shadow: 0px 0px 0px;
@@ -91,30 +104,36 @@ footer {
   justify-content: space-evenly;
 }
 
-/* Mise en page des modales */
-dialog {
-  overflow-y: auto;
-  scrollbar-width: none;
+/* Mise en page des formulaires */
+form {
+  /* overflow-y: auto;
+  scrollbar-width: none; */
   background-color: var(--bg-color-secondary);
-  margin: 5% 6%;
-  padding: 0;
+  margin: 0 6dvw;
   max-height: 71dvh;
   width: 88%;
   box-sizing: border-box;
-  border: solid 16px var(--bg-color-secondary);
+  border: solid 16px;
+  border-color: transparent;
   border-radius: 20px;
   h1, label, input, select, p {
     color: var(--text-color);
+  }
+  label, input, select, textarea {
+    font-size: 1.2em;
+  }
+  h1 {
+    margin: 0 0 6dvw 0;
   }
   input, select, textarea {
     background-color: var(--bg-color-primary);
     border: none;
     border-radius: 5px;
-    font-size: 1.2em;
+    /* font-size: 1.2em; */
     height: 40px;
     margin: 8px 0;
   }
-  input, textarea {
+  label, input, textarea {
     padding-left: 4%;
     width: 95%;
   }
@@ -144,53 +163,8 @@ option {
   font-size: 0.8rem;
 }
 
-/* dialog {
-  overflow-y: auto;
-  scrollbar-width: none;
-  background-color: var(--bg-color-secondary);
-  box-sizing: border-box;
-  border: solid 16px var(--bg-color-secondary);
-  border-radius: 20px;
-  margin: 5% 3%;
-  padding: 0;
-  width: 80%;
-  height: 72%;
-  h1, label, input, select, p {
-    color: var(--text-color);
-  }
-  form {
-    height: 99%;
-  }
-  h1 {
-    text-align: center;
-    margin: 5px 0px 50px;
-  }
-  label {
-    font-size: 1.2em;
-    margin-top: 50px;
-  }
-  input, select, textarea {
-    background-color: var(--bg-color-primary);
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    height: 40px;
-    margin: 8px 0;
-  }
-  input, textarea {
-    width: 98%;
-  }
-  textarea {
-    font-family: var(--font);
-    color: var(--text-color);
-    height: 200px;
-    margin-bottom: 16px;
-  }
-} */
-
 /* Page d'accueil */
-.btn_report {
-  position: relative;
+.report_btn {
   box-shadow: 10px 10px 8px var(--box-shadow-color);
   border-radius: 20px;
   border: none;
@@ -216,6 +190,11 @@ option {
 }
 #report_submit {
   bottom: 24px;
+}
+
+/* Responsive design */
+.intermediate, .tablet {
+  display: none;
 }
 
 /* Intermediate */
@@ -247,7 +226,14 @@ option {
     max-width: 768px;
     align-self: center;
   }
-  .paw1 {top: 34%;}
+  .paw1 {
+    top: 34%;
+    left: 12%;
+  }
+  .paw2 {
+    top: 51%;
+    right: 12%;
+  }
   .report_btn_flex {
     flex-direction: row;
   }

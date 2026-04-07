@@ -4,5 +4,5 @@
     <!-- <link rel="stylesheet" href="assets/style/pico.min.css"> -->
     <link rel="stylesheet" href="assets/style/main.css">
     <script type="module" src="assets/script/main.js" defer></script>
-    <title><?= $title ?? "" ?></title>
+    <title><?= $title ?? "AnimAlert" ?></title>
 </head>

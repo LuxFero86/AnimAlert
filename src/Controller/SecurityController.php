@@ -5,43 +5,46 @@ namespace App\Controller;
 use App\Controller\AbstractController;
 use App\Service\SecurityService;
 
-class SecurityController extends AbstractController
-{
+class SecurityController extends AbstractController {
     private SecurityService $securityService;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->securityService = new SecurityService();
     }
 
-    public function createAccount() : mixed 
-    {
-        $data= [];
-        if (isset($_POST["submit"])) {
-            $data["msg"] = $this->securityService->register($_POST);
-        }
-        return $this->render("register","inscription", $data);
-    }
-
-    public function connexion(): void
-    {
+    public function connexion(): void {
         $data= [];
         if (isset($_POST["submit"])) {
             
-            //Vérification de la connexion
+            //Procédure de connexion
             $data["msg"] = $this->securityService->login($_POST); 
 
-            //Si on est connecté alors redirection vers l'accueil       
-            if ($data["msg"] == "Vous etes connecté") header("Location:/");
+            //Si connecté -> redirection vers l'accueil       
+            if ($data["msg"] == "Connexion réussie !") header("Location:/");
             //redirection
             header("Refresh:2;");
         }
 
-        $this->render("connexion","connexion", $data);
+        $this->render("connection","connexion", $data);
     }
 
-    public function deconnexion(): void 
-    {
+    public function createAccount() : void {
+        $data= [];
+        if (isset($_POST["submit"])) {
+
+            //Procédure de création
+            $data["msg"] = $this->securityService->register($_POST);
+
+            //Si ajouté -> redirection vers la connexion       
+            if (str_contains($data["msg"], 'ajouté')) header("Location:/login");
+            //redirection
+            header("Refresh:2;");
+        }
+
+        $this->render("registration","inscription", $data);
+    }
+
+    public function deconnexion(): void {
         $this->securityService->logout();
     }
 }

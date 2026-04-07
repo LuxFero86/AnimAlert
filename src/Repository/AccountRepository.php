@@ -5,30 +5,37 @@ namespace App\Repository;
 use App\Database\Mysql;
 use App\Entity\Account;
 
-class AccountRepository
-{
+class AccountRepository {
     //connexion à la BDD
     private \PDO $connect;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->connect = Mysql::connectBdd();
     }
 
-    public function addAccount(Account $account): Account
-    {
+    public function addAccount(Account $account): Account {
         try {
             //1 Ecrire la requête SQL
-            $sql = "INSERT INTO `account`(user_name, user_email, user_pwd, created_at, updated_at) VALUE(?,?,?,?,?)";
+            $sql = "INSERT INTO `account`(
+                user_name,
+                user_email,
+                user_pwd,
+                created_at,
+                updated_at,
+                `status`,
+                role_id)
+            VALUE(?, ?, ?, ?, ?, ?, ?)";
             //2 Préparation de la requête
             $req = $this->connect->prepare($sql);
             //3 Assignation des paramètres
-            $date = date('Y-m-d H:i:s');
+            $date = date('Y-m-d');
             $req->bindValue(1, $account->getName(),\PDO::PARAM_STR);
             $req->bindValue(2, $account->getEmail(),\PDO::PARAM_STR);
             $req->bindValue(3, $account->getPassword(),\PDO::PARAM_STR);
             $req->bindParam(4, $date,\PDO::PARAM_STR);
             $req->bindParam(5, $date,\PDO::PARAM_STR);
+            $req->bindValue(6, true,\PDO::PARAM_BOOL);
+            $req->bindValue(7, 1,\PDO::PARAM_INT);
             //4 Exécuter la requête
             $req->execute();
             //5 retourner (id account)
@@ -39,11 +46,10 @@ class AccountRepository
         return $account;
     }
 
-    public function isAccountExistsByEmail(string $email): bool 
-    {
+    public function isAccountExistsByEmail(string $email): bool {
         try  {
             //1 Ecrire la requête SQL
-            $sql = "SELECT a.id FROM account AS a WHERE a.email = ?";
+            $sql = "SELECT a.id_account FROM account AS a WHERE a.user_email = ?";
             //2 Préparer la requête,
             $req = $this->connect->prepare($sql);
             //3 Assigner le paramètre,
@@ -58,12 +64,20 @@ class AccountRepository
         return false;
     }
 
-    public function findAccountByEmail(string $email): ?Account
-    {
+    public function findAccountByEmail(string $email): ?Account {
         try {
             //1 Ecrire la requête,
-            $sql = "SELECT a.id, a.firstname, a.lastname, a.email, a.password, a.image FROM account AS a
-            WHERE a.email = ?";
+            $sql = "SELECT
+                a.id_account, 
+                a.user_name, 
+                a.user_email, 
+                a.user_pwd, 
+                a.created_at,
+                a.updated_at,
+                a.status,
+                a.role_id
+            FROM account AS a
+            WHERE a.user_email = ?";
             //2 Préparer la requête,
             $req = $this->connect->prepare($sql);
             //3 Assigner le paramètre,
@@ -71,15 +85,33 @@ class AccountRepository
             //4 Exécuter la requête,
             $req->execute();
             //5 Fetch en FETCH assoc,
-            $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, Account::class);
-            $account = $req->fetch();
+            $account = $req->fetch(\PDO::FETCH_ASSOC);
             //6 retourner le résultat du Fetch.
             if (isset($account) && $account == true) {
-                return $account;
+                //Hydratation en Account
+                return $this->hydrateAccount($account);
             }
             return null;
         } catch(\PDOException $e) {}
         return null;
+    }
+
+    /**
+     * Méthode pour Hydrater en Account
+     * @param array $row ligne d'enregistrement SQL
+     * @return Account Objet Account
+     */
+    public function hydrateAccount(array $row): Account 
+    {
+        $account = new Account($row["user_email"], $row["user_pwd"]);
+        $account
+            ->setId($row["id_account"])
+            ->setName($row["user_name"])
+            ->setCreatedAt($row["created_at"])
+            ->setUpdatedAt($row["updated_at"])
+            ->setStatus($row["status"])
+            ->setRole($row["role_id"]);
+        return $account;
     }
 }
 

@@ -7,8 +7,8 @@ class Account {
     private ?string $user_name;
     private ?string $user_email;
     private ?string $user_pwd;
-    private ?\DateTime $created_at;
-    private ?\DateTime $updated_at;
+    private ?string $created_at;
+    private ?string $updated_at;
     private ?bool $status;
     private ?int $role_id;
 
@@ -57,21 +57,21 @@ class Account {
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTime {
+    public function getCreatedAt(): ?string {
         return $this->created_at;
     }
 
-    public function setCreatedAt(?\DateTime $datetime): self {
-        $this->created_at = $datetime;
+    public function setCreatedAt(?string $date): self {
+        $this->created_at = $date;
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTime {
+    public function getUpdatedAt(): ?string {
         return $this->updated_at;
     }
 
-    public function setUpdatedAt(?\DateTime $datetime): self {
-        $this->updated_at = $datetime;
+    public function setUpdatedAt(?string $date): self {
+        $this->updated_at = $date;
         return $this;
     }
 
@@ -94,17 +94,15 @@ class Account {
     }
 
     //Méthodes
-    public function __toString(): string
-    {
+    public function __toString(): string {
         return $this->user_name;
     }
     
     /**
-     * Méthode pour hasher le password en Bycript
+     * Méthode pour hasher le password en Bcript
      * @return void
      */
-    public function hashPassword(): void
-    {
+    public function hashPassword(): void {
         $this->user_pwd = password_hash($this->user_pwd, PASSWORD_DEFAULT);
     }
 
@@ -113,8 +111,7 @@ class Account {
      * @param string $plainPassword mot de passe en clair
      * @return bool true si valide false si invalide
      */
-    public function verifyPassword(string $plainPassword): bool 
-    {
+    public function verifyPassword(string $plainPassword): bool {
         return password_verify($plainPassword, $this->user_pwd);
     }
 }

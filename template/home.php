@@ -1,7 +1,7 @@
 <main class="report_btn_flex">
     <!-- Boutons de signalement -->
-    <button class="btn_report onclick" id="btn_lost" type="button">PERDU</button>
-    <button class="btn_report onclick" id="btn_found" type="button">TROUVÉ</button>
+    <button class="report_btn relative onclick" id="btn_lost" type="button">PERDU</button>
+    <button class="report_btn relative onclick" id="btn_found" type="button">TROUVÉ</button>
 
     <!-- Formulaire de signalement -->
     <dialog id="report_form" class="report_form">
