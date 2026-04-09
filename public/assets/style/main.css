@@ -21,12 +21,12 @@ body {
 .paw1 {
   top: 22%;
   left: 8%;
-  display: none;
+  /* display: none; */
 }
 .paw2 {
   top: 53%;
   right: 8%;
-  display: none;
+  /* display: none; */
 }
 main {
   flex: 1 0 auto;
@@ -124,6 +124,13 @@ form {
   }
   h1 {
     margin: 0 0 6dvw 0;
+  }
+  h3 {
+    margin: 4dvw 0;
+  }
+  p {
+    font-size: 1.2em;
+    margin: 2dvw 0;
   }
   input, select, textarea {
     background-color: var(--bg-color-primary);

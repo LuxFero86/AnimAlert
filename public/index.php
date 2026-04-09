@@ -49,13 +49,13 @@ $securityController = new SecurityController();
             case '/logout':
                 $securityController->deconnexion();
                 break;
+            case '/profile':
+                $securityController->profile();
+                break;
             default:
                 echo "404 la page n'existe pas";
                 break;
         }
-
-    echo $_SESSION['connected'];
-    echo $_SESSION['username'];
 
     include '../template/component/footer.php'; ?>
 

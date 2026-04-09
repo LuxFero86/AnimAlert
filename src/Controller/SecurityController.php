@@ -12,6 +12,23 @@ class SecurityController extends AbstractController {
         $this->securityService = new SecurityService();
     }
 
+    public function createAccount() : void {
+        $data= [];
+        if (isset($_POST["submit"])) {
+
+            //Procédure de création
+            $data["msg"] = $this->securityService->register($_POST);
+
+            //Si ajouté/connecté -> redirection vers la connexion       
+            if (str_contains($data["msg"], 'ajouté')) header("Location:/");
+
+            //redirection
+            header("Refresh:2;");
+        }
+
+        $this->render("registration","inscription", $data);
+    }
+
     public function connexion(): void {
         $data= [];
         if (isset($_POST["submit"])) {
@@ -20,7 +37,8 @@ class SecurityController extends AbstractController {
             $data["msg"] = $this->securityService->login($_POST); 
 
             //Si connecté -> redirection vers l'accueil       
-            if ($data["msg"] == "Connexion réussie !") header("Location:/");
+            if ($data["msg"] == "Connexion réussie !") header('Location:/');
+
             //redirection
             header("Refresh:2;");
         }
@@ -28,20 +46,8 @@ class SecurityController extends AbstractController {
         $this->render("connection","connexion", $data);
     }
 
-    public function createAccount() : void {
-        $data= [];
-        if (isset($_POST["submit"])) {
-
-            //Procédure de création
-            $data["msg"] = $this->securityService->register($_POST);
-
-            //Si ajouté -> redirection vers la connexion       
-            if (str_contains($data["msg"], 'ajouté')) header("Location:/login");
-            //redirection
-            header("Refresh:2;");
-        }
-
-        $this->render("registration","inscription", $data);
+    public function profile(): void {
+        $this->render("profile","Profil");
     }
 
     public function deconnexion(): void {

@@ -39,7 +39,9 @@ class SecurityService {
         }
         // Super globale de session
         $_SESSION['connected'] = true;
+        $_SESSION['userID'] = $user->getId();
         $_SESSION['username'] = $user->getName();
+        $_SESSION['usermail'] = $user->getEmail();
 
         return "Connexion réussie !";
     }
@@ -83,7 +85,13 @@ class SecurityService {
         //8 ajouter le compte
         $this->accountRepository->addAccount($user);
 
-        return "Le compte : " . $user->getEmail() . " a été ajouté !";
+        // Super globale de session
+        $_SESSION['connected'] = true;
+        $_SESSION['userID'] = $user->getId();
+        $_SESSION['username'] = $user->getName();
+        $_SESSION['usermail'] = $user->getEmail();
+
+        return "Le compte a été ajouté !";
     }
 
     public function logout(): void {
