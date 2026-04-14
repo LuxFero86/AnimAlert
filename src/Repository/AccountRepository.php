@@ -6,6 +6,7 @@ use App\Database\Mysql;
 use App\Entity\Account;
 
 class AccountRepository {
+    
     //connexion à la BDD
     private \PDO $connect;
 
@@ -101,8 +102,7 @@ class AccountRepository {
      * @param array $row ligne d'enregistrement SQL
      * @return Account Objet Account
      */
-    public function hydrateAccount(array $row): Account 
-    {
+    public function hydrateAccount(array $row): Account {
         $account = new Account($row["user_email"], $row["user_pwd"]);
         $account
             ->setId($row["id_account"])

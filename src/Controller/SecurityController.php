@@ -6,6 +6,7 @@ use App\Controller\AbstractController;
 use App\Service\SecurityService;
 
 class SecurityController extends AbstractController {
+    
     private SecurityService $securityService;
 
     public function __construct() {

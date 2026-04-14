@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 class Account {
+    
     private ?int $id_account;
     private ?string $user_name;
     private ?string $user_email;
@@ -92,12 +93,8 @@ class Account {
         $this->role_id = $role;
         return $this;
     }
-
-    //Méthodes
-    public function __toString(): string {
-        return $this->user_name;
-    }
     
+
     /**
      * Méthode pour hasher le password en Bcript
      * @return void

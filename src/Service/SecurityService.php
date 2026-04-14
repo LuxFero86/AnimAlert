@@ -7,6 +7,7 @@ use App\Repository\AccountRepository;
 use App\Utils\Tools;
 
 class SecurityService {
+    
     private AccountRepository $accountRepository;
 
     public function __construct() {

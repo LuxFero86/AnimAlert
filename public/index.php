@@ -38,7 +38,10 @@ $securityController = new SecurityController();
         //Routeur (test)
         switch ($path) {
             case '/':
-                $homeController->index();
+                $homeController->home();
+                break;
+            case '/report':
+                $homeController->report();
                 break;
             case '/login':
                 $securityController->connexion();
