@@ -30,37 +30,39 @@ $securityController = new SecurityController();
 <?php include '../template/component/head.php'; ?>
 
 <body>
+    <div class="app">
 
-    <?php
+        <?php
 
-    include '../template/component/header.php';
+        include '../template/component/header.php';
 
-        //Routeur (test)
-        switch ($path) {
-            case '/':
-                $homeController->home();
-                break;
-            case '/report':
-                $homeController->report();
-                break;
-            case '/login':
-                $securityController->connexion();
-                break;
-            case '/register':
-                $securityController->createAccount();
-                break;
-            case '/logout':
-                $securityController->deconnexion();
-                break;
-            case '/profile':
-                $securityController->profile();
-                break;
-            default:
-                echo "404 la page n'existe pas";
-                break;
-        }
+            //Routeur (test)
+            switch ($path) {
+                case '/':
+                    $homeController->home();
+                    break;
+                case '/report':
+                    $homeController->report();
+                    break;
+                case '/login':
+                    $securityController->connexion();
+                    break;
+                case '/register':
+                    $securityController->createAccount();
+                    break;
+                case '/logout':
+                    $securityController->deconnexion();
+                    break;
+                case '/profile':
+                    $securityController->profile();
+                    break;
+                default:
+                    echo "404 la page n'existe pas";
+                    break;
+            }
 
-    include '../template/component/footer.php'; ?>
+        include '../template/component/footer.php'; ?>
 
+    </div>
 </body>
 </html>
