@@ -20,7 +20,7 @@ class SecurityController extends AbstractController {
             //Procédure de création
             $data["msg"] = $this->securityService->register($_POST);
 
-            //Si ajouté/connecté -> redirection vers la connexion       
+            //Si ajouté/connecté -> redirection vers la connexion
             if (str_contains($data["msg"], 'ajouté')) header("Location:/");
 
             //redirection
@@ -35,9 +35,9 @@ class SecurityController extends AbstractController {
         if (isset($_POST["submit"])) {
             
             //Procédure de connexion
-            $data["msg"] = $this->securityService->login($_POST); 
+            $data["msg"] = $this->securityService->login($_POST);
 
-            //Si connecté -> redirection vers l'accueil       
+            //Si connecté -> redirection vers l'accueil
             if ($data["msg"] == "Connexion réussie !") header('Location:/');
 
             //redirection

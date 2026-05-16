@@ -14,6 +14,12 @@ class SecurityService {
         $this->accountRepository = new AccountRepository();
     }
 
+    /**
+     * Méthode de connexion utilisateur
+     * @param array $account données utilisateurs
+     * @return string message
+     */
+    
     public function login(array $account): string {
         //1 vérifier si les champs sont remplis
         if (
@@ -50,7 +56,7 @@ class SecurityService {
     public function register(array $account): string {
         //1 vérifier si les champs sont remplis
         if (
-            empty($account["username"]) || 
+            empty($account["username"]) ||
             empty($account["usermail"]) ||
             empty($account["password"]) ||
             empty($account["confirm_password"])

@@ -25,7 +25,7 @@ class HomeController extends AbstractController {
             $data["report_type"] = isset($_GET["lost"]) ? 0 : 1;
         }
         // récupération des types
-        $data["types"] = $this->typeService->getAllTypes();
+        $data["pet_types"] = $this->typeService->getAllTypes();
 
         return $this->render("report", "Signalement", $data);
     }

@@ -1,10 +1,11 @@
-<main class="report_btn_flex">
+<main>
     <!-- Formulaire de profil -->
-    <form class="relative flex column" action="" method="post">
-        <h1 class="center">Profil</h1>
-        <h3 class="center">Nom d'utilisateur :</h3>
-        <p class="center"><?= $_SESSION['username'] ?></p>
-        <h3 class="center">Adresse e-mail :</h3>
-        <p class="center"><?= $_SESSION['usermail'] ?></p>
+    <form id="profile" action="" method="post">
+        <h2 class="at_top">Profil</h2>
+        <h3>Nom d'utilisateur :</h3>
+        <p><?= $_SESSION['username'] ?></p>
+        <h3>Adresse e-mail :</h3>
+        <p><?= $_SESSION['usermail'] ?></p>
+        <button type="button" id="logout_btn" class="btn addInfo_btn onclick">Se déconnecter</button>
     </form>
 </main>

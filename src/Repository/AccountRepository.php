@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use DateTime;
 use App\Database\Mysql;
 use App\Entity\Account;
 
@@ -25,11 +26,11 @@ class AccountRepository {
                 updated_at,
                 `status`,
                 role_id)
-            VALUE(?, ?, ?, ?, ?, ?, ?)";
+            VALUES(?, ?, ?, ?, ?, ?, ?)";
             //2 Préparation de la requête
             $req = $this->connect->prepare($sql);
             //3 Assignation des paramètres
-            $date = date('Y-m-d');
+            $date = (new DateTime())->format('Y-m-d');
             $req->bindValue(1, $account->getName(),\PDO::PARAM_STR);
             $req->bindValue(2, $account->getEmail(),\PDO::PARAM_STR);
             $req->bindValue(3, $account->getPassword(),\PDO::PARAM_STR);

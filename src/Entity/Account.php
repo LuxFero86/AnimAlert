@@ -89,8 +89,8 @@ class Account {
         return $this->role_id;
     }
 
-    public function setRole(?int $role): self {
-        $this->role_id = $role;
+    public function setRole(?int $id_role): self {
+        $this->role_id = $id_role;
         return $this;
     }
     
